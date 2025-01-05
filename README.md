@@ -68,6 +68,20 @@ HTTP穿透是最常用也是最主要的方式，当成功配置启动后，你�
 
 服务器端口 9000-10000 默认是开放状态，你可以直接使用，IP 地址填写 frp.renfei.net 即可。
 
+## 配置成为服务
+
+配置成系统服务后将跟随系统开机自启动。
+
+### Linux 服务
+
+- 复制 frpc 到 /usr/bin/frpc
+- 复制 frpc.toml 到 /etc/frpc/frpc.toml
+- 创建服务文件 /usr/lib/systemd/system/frpc.service 内容参见:[frpc.service](./frpc.service)
+- 执行：```sudo systemctl daemon-reload```
+- 启动：```sudo systemctl start frpc```
+- 查看：```sudo systemctl status frpc```
+- 自启：```sudo systemctl enable frpc```
+
 ## 常见问题
 
 ### MacOS 无法验证开发人员

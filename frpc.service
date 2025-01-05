@@ -1,0 +1,10 @@
+[Unit]
+Description=FRP Client
+Documentation=https://github.com/fatedier/frp
+After=network.target network-online.target
+[Service]
+Type=simple
+ExecStart=/usr/bin/frpc -c /etc/frpc/frpc.toml
+Restart=always
+[Install]
+WantedBy=multi-user.target
