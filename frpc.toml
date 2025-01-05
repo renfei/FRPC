@@ -1,0 +1,39 @@
+serverAddr = "frp.renfei.net"
+serverPort = 7000
+
+auth.method = "token"
+# Token
+auth.token = "12345678"
+
+# 本地控制台界面
+webServer.addr = "127.0.0.1"
+webServer.port = 7400
+webServer.user = "admin"
+webServer.password = "admin"
+
+# HTTP穿透
+[[proxies]]
+# 名称
+name = "web01"
+# 类型
+type = "http"
+# 本地IP
+localIP = "127.0.0.1"
+# 本地端口
+localPort = 80
+# 子域名，web01将变为web01.renfei.net
+subdomain = "web01"
+
+
+# 端口穿透
+[[proxies]]
+# 名称
+name = "ssh"
+# 类型
+type = "tcp"
+# 本地IP
+localIP = "127.0.0.1"
+# 本地端口
+localPort = 22
+# 服务器端口填写0将随机分配，手动分配请选择 9000-10000
+remotePort = 0
